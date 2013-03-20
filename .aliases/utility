@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# utility aliases
+alias ls='ls -l -G'
+alias find_svn='find . \( -name .svn -o -name "*~" \) -prune -o';
+alias grepc='grep --color=auto -HnT'
+alias grep_svn='grepc --exclude-dir=.svn --exclude=*~'
+alias tree='tree -C'
+alias vim='mvim -v'
+alias regex='perl -pi -w -e'
+alias svn_rm="svn st | awk '/!/ {print \"svn rm \"$2}' | bash" # removes previously deleted files from repo
+alias diffdir="diff -iEbBqr -x '*~' -x .svn -x *.pyc --strip-trailing-cr"
+
+alias octave='/Applications/Octave.app/Contents/Resources/bin/octave'
+alias vless='vim -u /usr/share/vim/vim72/macros/less.vim'
+
+# start virtual machines
+alias start_smivm='rm -rf ~/Documents/Virtual\ Machines.localized/SMI\ VM\ JeOS.vmwarevm/*.lck; /Library/Application\ Support/VMware\ Fusion/vmrun start ~/Documents/Virtual\ Machines.localized/SMI\ VM\ JeOS.vmwarevm/SMI\ VM\ JeOS.vmx nogui'
+alias start_ubuntu='/Library/Application\ Support/VMware\ Fusion/vmrun start ~/Documents/Virtual\ Machines.localized/Ubuntu\ 8.04\ Server.vmwarevm/Ubuntu\ 8.04\ Server.vmx nogui'
+
+fjson () { php /Users/andrew/Documents/library/php/formatJson.php $@; }
+fcurl () { export i=`curl $@`; fjson \'$i\'; }
+
