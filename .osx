@@ -166,6 +166,34 @@ systemsetup -settimezone "America/Los_Angeles" > /dev/null
 # Disable auto-correct
 #defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
+
+###############################################################################
+# Update keyboard modifier keys
+###############################################################################
+# This command will print out the properties for all keyboards attached to a
+# machine:
+#     ioreg -n IOHIDKeyboard -r | grep -e 'class IOHIDKeyboard' -e VendorID\" -e Product
+#
+# In the following `defaults write` statement, keyboard identifier is formed
+# as:
+#     com.apple.keyboard.modifiermapping.$VendorID-$ProductID-0
+#
+# Reference: http://apple.stackexchange.com/questions/13598/updating-modifier-key-mappings-through-defaults-command-tool
+#
+# Here are some common keyboard identifiers:
+#   Model                        Vendor ID     Product ID      identifier 
+#   2009 MacBook Pro 15"         1452          566             1452-566-0
+#   Apple Bluetooth Keyboard     1452          569             1452-569-0
+#   2009 MacBook Pro 15"         1452          601             1452-601-0
+
+# Change the caps-lock key to control
+CAPS_LOCK_BECOMES_CONTROL='<dict><key>HIDKeyboardModifierMappingDst</key><integer>2</integer><key>HIDKeyboardModifierMappingSrc</key><integer>0</integer></dict>'
+
+defaults -currentHost write -g com.apple.keyboard.modifiermapping.1452-566-0 -array-add $CAPS_LOCK_BECOMES_CONTROL
+defaults -currentHost write -g com.apple.keyboard.modifiermapping.1452-569-0 -array-add $CAPS_LOCK_BECOMES_CONTROL
+defaults -currentHost write -g com.apple.keyboard.modifiermapping.1452-601-0 -array-add $CAPS_LOCK_BECOMES_CONTROL
+
+
 ###############################################################################
 # Screen                                                                      #
 ###############################################################################
