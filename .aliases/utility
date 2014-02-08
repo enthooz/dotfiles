@@ -21,3 +21,6 @@ alias start_ubuntu='/Library/Application\ Support/VMware\ Fusion/vmrun start ~/D
 fjson () { php /Users/andrew/Documents/library/php/formatJson.php $@; }
 fcurl () { export i=`curl $@`; fjson \'$i\'; }
 
+alias start_nginx='sudo launchctl load /Library/LaunchDaemons/dev.nginx.plist'
+alias stop_nginx='sudo launchctl unload /Library/LaunchDaemons/dev.nginx.plist'
+alias restart_nginx='stop_nginx ; sleep 1 ; start_nginx'
