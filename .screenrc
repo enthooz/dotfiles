@@ -1,0 +1,42 @@
+# http://www.debian-administration.org/articles/560
+# upper "status" line
+caption     always        "%{+b rk}MICRO [%H]%{wk} | %{gk}%Y/%m/%d %c UTC %{wk}| %{ck}%72=Load: %l"
+#                           ||| |          |   |       |   |  |  |  |       |      |             |
+#                           ||| |          |   |       |   |  |  |  |       |      |             `current load on system
+#                           ||| |          |   |       |   |  |  |  |       |      `cyan on black
+#                           ||| |          |   |       |   |  |  |  |       `white on black
+#                           ||| |          |   |       |   |  |  |  `time 24h
+#                           ||| |          |   |       |   |  |  `day
+#                           ||| |          |   |       |   |  `month
+#                           ||| |          |   |       |   `year
+#                           ||| |          |   |       `green on black
+#                           ||| |          |   `white on black
+#                           ||| |          ` hostname
+#                           ||| |
+#                           ||| `red on black
+#                           ||`bold
+#                           |`add to the current attribute set
+#                           `attribute color modifier
+#
+hardstatus alwayslastline "%?%{ky}%-Lw%?%{bw}%n*%f %t%?(%u)%?%?%{ky} %+Lw%?"
+#                              |    |     |   |  |  |    |       |     |
+#                              |    |     |   |  |  |    |       |     `all window names after current one (+w) shown
+#                              |    |     |   |  |  |    |       |      with window flags (L)
+#                              |    |     |   |  |  |    |       `black on yellow
+#                              |    |     |   |  |  |    `all other users on this window
+#                              |    |     |   |  |  `window title
+#                              |    |     |   |  `window flags
+#                              |    |     |   `window number
+#                              |    |     `black on yellow
+#                              |    `all window names up to current one (-w) shown with window flags (L)
+#                              `yellow on black
+
+## do not trash BackSpace, usually DEL
+bindkey -k kb
+bindkey -d -k kb
+# use C-\ as the command key
+escape ^\\\
+
+## do not trash Delete, usually ESC [ 3 ~
+bindkey -k kD
+bindkey -d -k kD

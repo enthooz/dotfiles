@@ -1,0 +1,5 @@
+__MACOSX
+*.svn*
+*.DS_Store*
+exclude.lst
+*~
