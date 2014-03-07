@@ -38,7 +38,7 @@ set laststatus=2     " shows white bar at bottom by default
 set showcmd            " display incomplete commands
 set incsearch        " do incremental searching
 
-colorscheme vividchalk_andrew
+colorscheme vividchalk
 
 
 " this shortens the pause for commands using <PLUG>

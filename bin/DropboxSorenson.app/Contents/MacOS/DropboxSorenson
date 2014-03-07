@@ -1,0 +1,2 @@
+#!/bin/bash
+HOME=/Users/$USER/.dropbox-sorenson /Applications/Dropbox.app/Contents/MacOS/Dropbox
